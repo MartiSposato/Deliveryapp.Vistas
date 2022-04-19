@@ -1,0 +1,37 @@
+Create VIEW Castigos_vista1
+as
+Select Violation_ID, fecha
+From castigos
+where fecha >= "2022-04-05"
+order by violation_ID;
+
+Create View view_ordenes1
+as
+Select Order_id, ciudad, rider_id
+from Ordenes
+Where ciudad = 'Buenos Aires'
+order by ciudad
+
+Create view pagos_view_1
+as
+Select Monto, concepto, rider_id
+FRom pagos
+where concepto = 'TIPs'
+and Monto >= '1500'
+order by rider_id;
+
+Create view riders_and_castigos_1
+as
+Select riders.rider_id, riders.ciudad, riders.nombre
+from riders
+inner join castigos
+on (riders.rider_id = castigos.rider_id)
+Where castigos.state = 'LIFTED'
+order by riders.rider_id;
+
+create view shifts_view_1
+as
+select shift_id, rider_id, fecha, duracion
+from shifts
+where duracion < '4'
+and ciudad = "Cordoba";
