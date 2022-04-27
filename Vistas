@@ -10,7 +10,7 @@ as
 Select Order_id, ciudad, rider_id
 from Ordenes
 Where ciudad = 'Buenos Aires'
-order by ciudad
+order by ciudad;
 
 Create view pagos_view_1
 as
